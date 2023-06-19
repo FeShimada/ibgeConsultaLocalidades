@@ -10,6 +10,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
+import utfpr.model.Municipio;
 
 /**
  *
@@ -27,4 +29,18 @@ public class ClienteHttp {
             throw new RuntimeException(ex);
         }
     }
+    
+    final String urlMunicipios = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/%s/municipios";
+
+    public String getMunicipiosByUf( final String municipio ) {
+        
+        final String url = String.format(urlMunicipios, municipio );
+        
+        final String json = buscaDados(url);
+        
+        return json;
+        
+    }
+    
+    
 }
