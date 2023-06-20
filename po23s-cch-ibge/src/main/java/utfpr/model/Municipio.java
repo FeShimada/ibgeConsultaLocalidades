@@ -49,5 +49,10 @@ public class Municipio {
     public void setRegiao(String regiao) {
         this.regiao = regiao;
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
     
 }
